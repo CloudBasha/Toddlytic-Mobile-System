@@ -1,0 +1,45 @@
+
+<ion-header>
+    <ion-navbar>
+  <ion-buttons start>
+  </ion-buttons>
+  <ion-buttons end>
+    <ion-icon name="add"></ion-icon>  
+    <ion-icon name="volume-off"></ion-icon>  
+    <ion-icon name="notifications-off"></ion-icon>  
+    <ion-icon name="search"></ion-icon>
+    <ion-icon name="more"></ion-icon>
+  </ion-buttons>
+   
+    <ion-title><ion-icon name="home" start></ion-icon>TODDLYTIC</ion-title>
+
+  <ion-buttons center>
+      <button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-icon name="camera"></ion-icon>
+      <ion-icon name="school"></ion-icon>
+      <ion-icon name="calendar" ></ion-icon>
+  </ion-buttons>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let feed of feeds; let i= index">
+  <ion-card-content (click)="onClick(feeds[i])">
+    <ion-card-header>
+      {{feed.header}}
+    </ion-card-header>
+    {{feed.time}}
+    <ion-note>{{ feed.anothor }}:{{  feed.message }}</ion-note>
+    <ion-badge>{{ feed.badge}}</ion-badge>
+    <ion-icon *ngIf="feed.activity.checkin" name="checkmark-circle-online"></ion-icon>
+    <ion-icon *ngIf="feed.activity.sleep" name="bed"></ion-icon>
+    <ion-icon *ngIf="feed.activity.feeding" name="ice-cream"></ion-icon>
+    <ion-icon *ngIf="feed.activity.images" name="images"></ion-icon>
+    <ion-icon *ngIf="feed.activity.health" name="bottle"></ion-icon>
+    <ion-icon name="star-outline"></ion-icon>
+    <ion-note>{{ feed.activity.message}}</ion-note>
+  </ion-card-content>
+</ion-card>
+</ion-content>

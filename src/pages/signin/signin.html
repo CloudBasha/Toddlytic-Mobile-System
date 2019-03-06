@@ -1,0 +1,63 @@
+<ion-content padding>
+<!--
+    <div class="col loginpage-bg">
+      <div class="img-wrap">
+        <img src="./img/logo.png" class="col logo">
+      </div>
+    </div>
+-->
+<div class="col no-padding">
+  <img src="/assets/img/loginGIF.gif" class="loginpage-GIF">   
+<!--
+  <div class="img-wrap" style="position: absolute;top: 5px;left: 5px;width: 18%;">
+    <img src="./img/logo.png" class="col logo">
+  </div>
+-->
+</div>
+
+<div class="footer-wrap">
+  <div class="row responsive-sm login-form">
+    <div class="col">
+      <div class="list" align="center">
+        <label class="item item-input item-input-custm item-stacked-label bdr-none ">
+          <span class="input-label txt-color bg-none input-label-custm" style="text-align: center">Email</span>
+          <input type="email" name="userName" class="bg-none input-custm"
+                 [(ngModel)]="loginRequest.userName">
+        </label>
+        <label class="item item-input item-input-custm item-stacked-label bdr-none">
+          <span class="input-label txt-color bg-none input-label-custm" style="text-align: center">Password</span>
+          <input type="password" name="password" placeholder="" class="bg-none input-custm"
+                 [(ngModel)]="loginRequest.password">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row paddingBottom20">
+    <div class="col text-center">
+      <div class="col">
+        <button class="button signin-btn button-calm" (click)="authenticate()" style="background-color: #13A0DB !important;">SIGN IN
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row paddingBottom20" style="margin-top: 5px;">
+    <div class="col-50 socialLoginCol">
+      <button class="button button-block button-round social-button-facebook socialLoginButtons" ng-click="fbLogin()">Facebook</button>
+    </div>
+    <div class="col-50 ">
+      <button class="button button-block button-round social-button-google socialLoginButtons" ng-click="gLogin()">Google</button>
+    </div>
+  </div>
+</div>
+<div class="col">
+  <p class="padding">
+    <a class="subdued themeheadclr pull-left" style="letter-spacing: 1px;"
+       ui-sref="socialLogin">Sign Up</a>
+    <a href="#" class="subdued themeheadclr pull-right" style="letter-spacing: 1px;"
+       ng-click="showAlert()">Forgot Password</a>
+  </p>
+</div>
+<div class="img-wrap padding-top">
+  <img src="/assets/img/logo1.png" class="col toddlyticLogo">
+</div>
+</ion-content>

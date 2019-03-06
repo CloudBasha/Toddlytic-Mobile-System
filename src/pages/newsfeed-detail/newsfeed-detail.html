@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ news.feed.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-fab bottom right>
+      <button ion-fab color="info" size="small">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <ion-fab-list side="top">
+        <ion-icon name="arrow-dropleft"></ion-icon>
+        <ion-icon name="checkmark-circle-online"></ion-icon>
+        <button ion-fab color="info">Action</button>
+        <button ion-fab color="info">Activity</button>
+        <button ion-fab color="info">Program</button>
+        <button ion-fab color="info">Enrichment</button>
+        <button ion-fab color="info">Lesson</button>
+        <button ion-fab color="info">Assessment</button>
+        <button ion-fab color="info">Attendance</button>
+        <button ion-fab color="info">Schedule</button>
+      </ion-fab-list>
+    </ion-fab>
+  <ion-card *ngFor="let message of news.messages; let i = index;">
+    <ion-card-content>
+      <ion-card-header>
+        {{message.title }}
+      </ion-card-header>
+        {{ message.content }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
