@@ -1,33 +1,47 @@
-
-<ion-header>
-  <ion-navbar>
-    <ion-title>{{ news.feed.title }}</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
+<ion-content no-padding>
   <ion-fab bottom right>
       <button ion-fab color="info" size="small">
         <ion-icon name="add"></ion-icon>
       </button>
       <ion-fab-list side="top">
-        <ion-icon name="arrow-dropleft"></ion-icon>
-        <ion-icon name="checkmark-circle-online"></ion-icon>
-        <button ion-fab color="info">Action</button>
-        <button ion-fab color="info">Activity</button>
-        <button ion-fab color="info">Program</button>
-        <button ion-fab color="info">Enrichment</button>
-        <button ion-fab color="info">Lesson</button>
-        <button ion-fab color="info">Assessment</button>
-        <button ion-fab color="info">Attendance</button>
-        <button ion-fab color="info">Schedule</button>
-      </ion-fab-list>
+        <ion-icon (click)="onActivity(news.feed.id)" item-left>Activity</ion-icon>
+        <ion-icon item-left>Program<h2 style="display: inline-block;text-align: right">Program</h2></ion-icon>
+        <ion-icon item-left>Enrichment</ion-icon>
+        <ion-icon item-left>Lesson</ion-icon>
+        <ion-icon item-left>Assessment</ion-icon>
+        <ion-icon item-left>Attendance</ion-icon>
+        <ion-icon item-left>Schedule</ion-icon>
+      </ion-fab-list> 
     </ion-fab>
   <ion-card *ngFor="let message of news.messages; let i = index;">
     <ion-card-content>
       <ion-card-header>
-        {{message.title }}
+        {{ message.title }} 
       </ion-card-header>
         {{ message.content }}
     </ion-card-content>
   </ion-card>
 </ion-content>
+<ion-footer no-shadow no-padding>
+    <ion-toolbar position="bottom">
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-8>
+            <ion-item start no-lines>
+              <ion-textarea clearOnEdit="true" autofocus="true" rows="1" placeholder="Enter more post here..."></ion-textarea>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2 >
+            <ion-item end no-lines no-padding>
+              <ion-icon name="attach" size="small"></ion-icon>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2>
+            <ion-item end no-lines no-padding>
+              <ion-icon name="send" size="small"></ion-icon>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

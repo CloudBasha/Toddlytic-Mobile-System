@@ -1,30 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from '@angular/common/http';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SigninPage } from '../pages/signin/signin'; 
-import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
-import { NewsfeedDetailPage } from '../pages/newsfeed-detail/newsfeed-detail'; 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpClientModule } from '@angular/common/http';
+import { TabsPage } from '../pages/tabs/tabs';
+import { CameraPageModule } from '../pages/camera/camera.module';
+import { GlobalProvider } from '../providers/global/global';
+import { NewsFeedTabsPage } from '../pages/news-feed-tabs/news-feed-tabs';
+import { WindowPage } from '../pages/window/window';
 
-@NgModule({
-  declarations: [
+@NgModule({ 
+  declarations: [ 
     MyApp,
     HomePage,
-    ListPage,
+    ListPage,  
     SigninPage,
-    NewsfeedPage,
-    NewsfeedDetailPage
+    TabsPage,
+    NewsFeedTabsPage,
+    WindowPage
   ],
   imports: [
-    BrowserModule,
+    SuperTabsModule, 
+    BrowserModule,  
     HttpClientModule, 
+    CameraPageModule,
     IonicModule.forRoot(MyApp),
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [ 
@@ -32,14 +40,16 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     ListPage,
     SigninPage,
-    NewsfeedPage,
-    NewsfeedDetailPage
+    TabsPage,
+    NewsFeedTabsPage,
+    WindowPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     HttpClientModule,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalProvider
   ]
 })
 export class AppModule {}

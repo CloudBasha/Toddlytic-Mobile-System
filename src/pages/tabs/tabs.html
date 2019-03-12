@@ -1,0 +1,38 @@
+<!-- Main Tabs Header and Content -->
+<ion-header no-padding no-border>
+  <ion-navbar color="primary">
+    <ion-buttons right>
+      <div [hidden]="HideOnSearch" >
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-4 no-padding>
+              <button class="button-clear" ion-button icon-only (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button icon-only (click)="onSearch()" style="background: transparent;"><ion-icon name="search"></ion-icon></button>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button icon-only >
+                <ion-icon name="more"></ion-icon>
+              </button> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div [hidden]="!HideOnSearch">
+          <ion-searchbar  (change)="onSearch()" #searchbar placeholder="Search for" clearOnEdit="true" showCancelButton end></ion-searchbar>
+      </div>
+    </ion-buttons>
+    <ion-title><img style="width:250px" src="/assets/img/logo1.png"></ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="home" start></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<ion-content >
+  <super-tabs tabsPlacement="top" toolbarBackground="primary" toolbarColor="light" indicatorColor="light" (tabSelect)="onTabSelect($event)">
+    <super-tab *ngFor="let page of pages" [root]="page.pageName" [icon]="page.icon" [id]="page.id"></super-tab>
+  </super-tabs>
+</ion-content>

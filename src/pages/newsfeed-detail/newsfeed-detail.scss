@@ -1,3 +1,12 @@
 page-newsfeed-detail {
+     
+    .icons-actions:before {
+        content: "\66";
+      }
 
+      .contentIcon{
+        width: 30px;
+        font-size:30px!important;
+        color:#2c5c68;
+    }
 }

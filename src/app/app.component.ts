@@ -6,27 +6,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SigninPage } from '../pages/signin/signin';
-import { NewsfeedPage } from '../pages/newsfeed/newsfeed';
+import { TabsPage } from '../pages/tabs/tabs';
+import { WindowPage } from '../pages/window/window';
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp {  
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewsfeedPage;
-
+  rootPage: any = TabsPage;
+  state : any = null;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage }
     ];
 
+  }
+
+  public setRootPage(page, state){
+    this.rootPage = page;
+    this.state = state;
+    console.log("state",this.state);
   }
 
   initializeApp() {

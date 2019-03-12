@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -34,6 +35,7 @@ export class SigninPage {
     
     this.http.post("https://system.toddlytic.com/login", loginObj)
     .subscribe(data =>{
+      this.navCtrl.push(TabsPage, data);
       console.log("data",JSON.stringify(data));
     }, (error) => {
       console.log("error",JSON.stringify(error));

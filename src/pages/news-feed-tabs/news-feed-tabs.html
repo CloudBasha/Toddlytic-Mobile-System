@@ -1,0 +1,19 @@
+<ion-header no-padding>
+  <ion-navbar color="primary">
+    <div class="hcs bar-stable bar-subheader no-tap-scroll">
+      <button ion-button (click)="onBack()"><ion-icon name="arrow-back"></ion-icon></button>
+      <ion-avatar slot="start">
+        <img style="width:30px;height:30px;" src="{{news.feed.img}}">
+      </ion-avatar>
+    </div>
+    <ion-title>{{ news.feed.header }}</ion-title>
+    <ion-buttons end>
+      <ion-icon name="delete"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding >
+  <super-tabs tabsPlacement="top" toolbarBackground="primary" toolbarColor="light" indicatorColor="light" (tabSelect)="onTabSelect($event)">
+    <super-tab *ngFor="let page of pages" [root]="page.pageName" [icon]="page.icon" [id]="page.id" [rootParams]="page.nav"></super-tab>
+  </super-tabs>
+</ion-content>
