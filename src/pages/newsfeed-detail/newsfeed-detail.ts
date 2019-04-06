@@ -32,12 +32,14 @@ export class NewsfeedDetailPage {
   }
 
   getMessages(id){
-     let m = [{ title : "1", content : "A"},
-        { title : "2", content : "B"},
-        { title : "3", content : "C"},
-        { title : "4", content : "D"},
-        { title : "5", content : "E"}
+     let m = [{ title : "1", content : "A", time : "3"},
+        { title : "2", content : "Bla bla" , time : "1"},
+        { title : "3", content : "Cat cought your tongue", time : "7"},
+        { title : "4", content : "Dark as night", time : "4"},
+        { title : "5", content : "Early as the worm" ,time : "2"}
       ];
+
+      m.sort((a,b) => a.time.localeCompare(b.time));
       return m;
   }
 }

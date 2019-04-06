@@ -1,18 +1,96 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="Profile"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button full color="secondary" (click)="onInbox()">
+          <ion-icon name="done-all"></ion-icon>
+          Inbox
+        </button>
+        <div>
+          Read 5, Latest 13:43 4-4-19
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onChat()">
+          <ion-icon name="chatboxes"></ion-icon>
+          Chats
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onNews()">
+          <ion-icon name="globe"></ion-icon>
+          News
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button full (click)="onToddlytic()">
+          <ion-icon src="assets/img/logo.png"></ion-icon>
+          Toddlytic
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onBusiness()">
+          <ion-icon name="business"></ion-icon>
+          Directory
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onPeople()">
+          <ion-icon name="contacts"></ion-icon>
+          People
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button full (click)="onRewards()">
+          <ion-icon name="gift"></ion-icon>
+          Rewards
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onBillings()">
+          <ion-icon name="card"></ion-icon>
+          Billings
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onPay()">
+          <ion-icon name="qr-scanner"></ion-icon>
+          Payments
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button full (click)="onRewards()">
+          <ion-icon name="leaf"></ion-icon>
+          Feedback
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onBillings()">
+          <ion-icon name="umbrella"></ion-icon>
+          Support
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full (click)="onTiemout()">
+          <ion-icon name="cafe"></ion-icon>
+          Rate Us
+        </button>
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
 </ion-content>

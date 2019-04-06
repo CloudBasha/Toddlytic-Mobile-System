@@ -2,11 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SuperTabs } from 'ionic2-super-tabs';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
   selector: 'page-tabs',
-  templateUrl: 'tabs.html',
+  templateUrl: 'tabs.html', 
 })
 
 export class TabsPage {  
@@ -16,9 +17,13 @@ export class TabsPage {
     { pageName: 'CalendarPage', title: 'Calendar', icon: 'calendar', id: 'calendarTab'},
   ];
 
+  groups = [
+    { name : "", },
+  ];
   public selectedTab = 0;
   public hideTabs : boolean = false;
   public HideOnSearch : boolean =  false;
+  public searchString : string = "";
 
   @ViewChild(SuperTabs) superTabs: SuperTabs;
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -30,6 +35,10 @@ export class TabsPage {
     this.selectedTab = 1;
   }
 
+  onHome(){
+    this.navCtrl.setRoot(HomePage);
+  }
+
   onAdd(){
 
   }
@@ -39,7 +48,20 @@ export class TabsPage {
   }
 
   onSearch(){
+    this.HideOnSearch = true;
+    console.log("onSearch",this.searchString);
+  }
+  onFocus(){
+    this.HideOnSearch = true;
+    console.log("onFocus",this.searchString);
+  }
+  offFocus(){ 
+    //this.HideOnSearch = false;
+    console.log("offFocus",this.searchString);
+  }
+  goSearch(){
     this.HideOnSearch = !this.HideOnSearch;
+    console.log("goSearch",this.searchString);
   }
 
   onTabSelect(ev: any) {

@@ -1,6 +1,6 @@
 <!-- Main Tabs Header and Content -->
 <ion-header no-padding no-border>
-  <ion-navbar color="primary">
+  <ion-navbar color="primary" hideBackButton>
     <ion-buttons right>
       <div [hidden]="HideOnSearch" >
         <ion-grid no-padding>
@@ -20,19 +20,32 @@
         </ion-grid>
       </div>
       <div [hidden]="!HideOnSearch">
-          <ion-searchbar  (change)="onSearch()" #searchbar placeholder="Search for" clearOnEdit="true" showCancelButton end></ion-searchbar>
+          <ion-searchbar style="width:1024px" (change)="goSearch()" #searchbar placeholder="Search for" clearOnEdit="true" showCancelButton end
+          [(ngModel)]="searchString" (ionFocus)="onFocus()" (ionInput)="goSearch()" (ionBlur)="offFocus()"
+          debounce=500></ion-searchbar>
       </div>
     </ion-buttons>
+    <div [hidden]="HideOnSearch">
     <ion-title><img style="width:250px" src="/assets/img/logo1.png"></ion-title>
     <ion-buttons left>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="onHome()">
         <ion-icon name="home" start></ion-icon>
       </button>
     </ion-buttons>
+  </div>
   </ion-navbar>
 </ion-header> 
 <ion-content >
-  <super-tabs tabsPlacement="top" toolbarBackground="primary" toolbarColor="light" indicatorColor="light" (tabSelect)="onTabSelect($event)">
+  <super-tabs  [hidden]="HideOnSearch" tabsPlacement="top" toolbarBackground="primary" toolbarColor="light" indicatorColor="light" (tabSelect)="onTabSelect($event)">
     <super-tab *ngFor="let page of pages" [root]="page.pageName" [icon]="page.icon" [id]="page.id"></super-tab>
   </super-tabs>
+  <div [hidden]="!HideOnSearch">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

@@ -13,4 +13,6 @@ export class GlobalProvider {
   public getCurrentPageHeader(id){
     this.currentPage = id;
   }
+
+  
 }

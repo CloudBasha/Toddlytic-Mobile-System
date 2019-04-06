@@ -15,6 +15,9 @@ import { CameraPageModule } from '../pages/camera/camera.module';
 import { GlobalProvider } from '../providers/global/global';
 import { NewsFeedTabsPage } from '../pages/news-feed-tabs/news-feed-tabs';
 import { WindowPage } from '../pages/window/window';
+import { DatabaseProvider } from '../providers/database/database';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 @NgModule({ 
   declarations: [ 
@@ -49,7 +52,10 @@ import { WindowPage } from '../pages/window/window';
     SplashScreen,
     HttpClientModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalProvider
+    GlobalProvider,
+    DatabaseProvider,
+    SQLite,
+    SQLitePorter
   ]
 })
 export class AppModule {}
