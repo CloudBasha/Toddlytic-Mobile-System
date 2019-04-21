@@ -5,8 +5,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 import { MyApp } from './app.component';
+import { DatabaseProvider } from '../providers/database/database';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SigninPage } from '../pages/signin/signin'; 
@@ -15,9 +18,7 @@ import { CameraPageModule } from '../pages/camera/camera.module';
 import { GlobalProvider } from '../providers/global/global';
 import { NewsFeedTabsPage } from '../pages/news-feed-tabs/news-feed-tabs';
 import { WindowPage } from '../pages/window/window';
-import { DatabaseProvider } from '../providers/database/database';
-import { SQLite } from '@ionic-native/sqlite/ngx';
-import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { PopoverComponent } from '../components/popover/popover';
 
 @NgModule({ 
   declarations: [ 
@@ -27,7 +28,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
     SigninPage,
     TabsPage,
     NewsFeedTabsPage,
-    WindowPage
+    WindowPage,
+    PopoverComponent
   ],
   imports: [
     SuperTabsModule, 
@@ -43,9 +45,10 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
     HomePage,
     ListPage,
     SigninPage,
-    TabsPage,
+    TabsPage, 
     NewsFeedTabsPage,
-    WindowPage
+    WindowPage,
+    PopoverComponent
   ],
   providers: [
     StatusBar,

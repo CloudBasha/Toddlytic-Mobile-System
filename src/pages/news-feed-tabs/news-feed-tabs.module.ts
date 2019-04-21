@@ -4,7 +4,7 @@ import { NewsFeedTabsPage } from './news-feed-tabs';
 
 @NgModule({
   declarations: [
-    NewsFeedTabsPage,
+    NewsFeedTabsPage
   ],
   imports: [
     IonicPageModule.forChild(NewsFeedTabsPage),

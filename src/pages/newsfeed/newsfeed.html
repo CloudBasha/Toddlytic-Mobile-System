@@ -1,6 +1,7 @@
 <ion-content padding>
-<ion-card *ngFor="let feed of feeds; let i= index">
-  <ion-card-content (click)="onClick(feeds[i])">
+<ion-card *ngFor="let feed of feeds; let i= index" >
+  <div *ngIf="feed.selected" class="selected"></div>
+  <ion-card-content (click)="onClick(feeds[i])" (press)="pressEvent($event,i)" (touchend)="touchend(i)">
     <ion-card-header no-padding>
       <div class="hcs">
       <ion-avatar slot="start">
@@ -11,7 +12,10 @@
     </div>
     </ion-card-header>
     <div class="hcs">
-      <ion-item text-left wrap-text>{{ feed.author }}: {{ feed.message | slice:0:50 }}</ion-item>
+      <ion-item text-left wrap-text>
+        <ion-note item-start>{{ feed.author }}:</ion-note>
+        <ion-note >{{ feed.message | slice:0:50 }}</ion-note>
+      </ion-item>
       <ion-badge>{{ feed.badge}}</ion-badge> 
     </div>
     <div>
@@ -22,5 +26,6 @@
       <ion-icon *ngIf="feed.activity.health" name="medkit"></ion-icon>&nbsp;
     </div>          
   </ion-card-content>
+
 </ion-card>
 </ion-content>

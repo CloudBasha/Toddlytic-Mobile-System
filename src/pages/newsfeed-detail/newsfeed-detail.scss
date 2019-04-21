@@ -1,12 +1,37 @@
 page-newsfeed-detail {
      
     .icons-actions:before {
-        content: "\66";
-      }
+      content: "\66";
+    }
 
-      .contentIcon{
-        width: 30px;
-        font-size:30px!important;
-        color:#2c5c68;
+    .scroll-content {
+      background-color: map-get($colors, light);
+    }
+
+    textarea {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      background-color: #fff;
+      font-size: 1.2em;
+      resize: none;
+      border: none;
+    } 
+
+    .contentIcon{
+      width: 30px;
+      font-size:30px!important;
+      color:#2c5c68;
+    }
+
+    .textLabelMessageDetailTitle{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size:1.2em!important;
+      font-weight: 600;
+      color:#2c5c68;
+    }
+
+    .textLabelMessageDetailContent{
+      font: 1em sans-serif;
+      color:gray;
     }
 }

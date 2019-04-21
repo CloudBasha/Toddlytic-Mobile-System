@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SuperTabs } from 'ionic2-super-tabs';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { HomePage } from '../home/home';
+import { SuperTabsController } from 'ionic2-super-tabs';
 
 @IonicPage()
 @Component({
@@ -11,6 +12,7 @@ import { HomePage } from '../home/home';
 })
 
 export class TabsPage {  
+  // Tha tabs pages for only Tabs.html page, with slider
   pages = [
     { pageName: 'NewsfeedPage', title: 'Newsfeed', icon: 'school', id: 'newsTab'},
     { pageName: 'CameraPage', title: 'Camera', icon: 'camera', id: 'camearTab'},
@@ -20,6 +22,7 @@ export class TabsPage {
   groups = [
     { name : "", },
   ];
+
   public selectedTab = 0;
   public hideTabs : boolean = false;
   public HideOnSearch : boolean =  false;
@@ -27,16 +30,23 @@ export class TabsPage {
 
   @ViewChild(SuperTabs) superTabs: SuperTabs;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController, private superTabsCtrl: SuperTabsController) {
+  
+
   } 
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
     this.selectedTab = 1;
+    //this.setBadge(); error when going back
   }
 
   onHome(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  setBadge() {
+    this.superTabsCtrl.setBadge('newsTab', 9);
   }
 
   onAdd(){

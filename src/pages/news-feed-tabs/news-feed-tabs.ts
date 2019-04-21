@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SuperTabs } from 'ionic2-super-tabs';
 import { MyApp } from '../../app/app.component';
 import { TabsPage } from '../tabs/tabs';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { PopoverComponent } from '../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -26,7 +28,8 @@ export class NewsFeedTabsPage {
     ]
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app : MyApp) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app : MyApp,
+    private popoverController : PopoverController) {
     this.news.feed = this.navParams.data; 
     this.pages[0].nav = this.news.feed;
     //let data = this.navParams.data.rootNavCtrl.rootParams;
@@ -46,5 +49,14 @@ export class NewsFeedTabsPage {
   public onBack(){
     let state = { selectedTab : this.onTabSelect };
     this.app.setRootPage(TabsPage, state);
+  }
+
+  async presentPopover(ev: any) { 
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 }
