@@ -1,0 +1,70 @@
+<ion-header no-padding>
+    <div >
+    <ion-navbar color="primary">
+      <div class="hcs bar-stable bar-subheader no-tap-scroll">
+          <button ion-button color="day" (click)="viewCtrl.dismiss()"><ion-icon name="arrow-back"></ion-icon></button>
+        <ion-avatar slot="start" padding>
+          <img style="width:30px;height:30px;" [src]="checkImg(student.photoUrl)">
+        </ion-avatar>
+        <ion-title class="center">{{ student.name}}</ion-title>
+      </div>
+    </ion-navbar>
+    </div>
+  </ion-header>
+<ion-content padding class="bar-subheader-custm peopleContent" scroll="false">
+  <ion-segment full="false" class="segmentBar">
+      <ion-segment-button class="segmentButton" (click)="segment('sleep');" value='sleep'>
+        <ion-icon class="icon-large" src="assets/img/sleepometer.svg" ></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button class="segmentButton" (click)="segment('health');" value='health'>
+        <ion-icon class="icon-large" src="assets/img/healthcheck.svg" ></ion-icon>
+      </ion-segment-button >
+      <ion-segment-button class="segmentButton" (click)="segment('meal');" value='medical'>
+        <ion-icon class="icon-large" src="assets/img/bottlefeeding.svg" ></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button class="segmentButton" (click)="segment('medical')" value='medical'>
+        <ion-icon class="icon-large" src="assets/img/medications.svg" ></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  <div [ngSwitch]="value">
+    <div *ngSwitchCase="sleep">1. Template - <b>{{value}}</b> </div>
+    <div *ngSwitchCase="health">2. Template - <b>{{value}}</b> </div>
+    <div *ngSwitchCase="meal">3. Template - <b>{{value}}</b> </div>
+    <div *ngSwitchCase="medical">4. Template - <b>{{value}}</b> </div>
+    <div *ngSwitchDefault>Default Template</div>
+  </div>
+</ion-content>
+
+<!--
+      <ion-segment full="false" class="segmentBar">
+      <ion-segment-button class="segmentButton" value="sleep">
+        <ion-icon class="icon-large" src="assets/img/sleepometer.svg"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button class="segmentButton" value="health">
+        <ion-icon class="icon-large" src="assets/img/healthcheck.svg" ></ion-icon>
+      </ion-segment-button >
+      <ion-segment-button class="segmentButton" value="meal">
+        <ion-icon class="icon-large" src="assets/img/bottlefeeding.svg" ></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button class="segmentButton" class="segmentButton" value="medical">
+        <ion-icon class="icon-large" src="assets/img/medications.svg"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-scroll zooming="true" direction="y" style="width: 100%; height: 92%">
+      <div [ngSwitch]="segmentType">
+        <ion-list *ngSwitchWhen="sleep" ngSwitchDefault>
+          Sleep
+        </ion-list>
+        <ion-list *ngSwitchWhen="health">
+            health
+        </ion-list>
+        <ion-list *ngSwitchWhen="meal">
+
+        <ion-list *ngSwitchWhen="medical">
+            medical
+        </ion-list>
+      </div>
+    </ion-scroll>
+
+
+-->

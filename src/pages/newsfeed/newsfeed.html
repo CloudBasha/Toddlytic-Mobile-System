@@ -7,19 +7,25 @@
       <ion-avatar slot="start">
         <img src="{{feed.img}}" style="width:30px;height:30px;">
       </ion-avatar> 
-      <ion-label>{{feed.header}}</ion-label>  
-      <ion-label text-right >{{feed.time}}</ion-label>
+
+      <ion-label>{{feed.header }}</ion-label>  
+      <ion-label text-right >{{feed.time | date:'shortDate'}}</ion-label>
+      <ion-label text-right >{{feed.time | date:'shortTime'}}</ion-label>
     </div>
     </ion-card-header>
     <div class="hcs">
       <ion-item text-left wrap-text>
+        <div *ngIf="feed.type=='Photos'">
+          <img src="{{feed.photo}}" width="20%">
+          <ion-icon name="camera"></ion-icon>
+        </div>
         <ion-note item-start>{{ feed.author }}:</ion-note>
-        <ion-note >{{ feed.message | slice:0:50 }}</ion-note>
+        <ion-note *ngIf="feed.type!='Photos'">{{ feed.message | slice:0:50 }}</ion-note>
       </ion-item>
-      <ion-badge>{{ feed.badge}}</ion-badge> 
+      <ion-badge>{{ feed.badge}}</ion-badge>  
     </div>
     <div>
-      <ion-icon *ngIf="feed.activity.checkin" name="checkmark-circle-outline"></ion-icon>&nbsp;
+      <ion-icon *ngIf="feed.activity.checkin" name="checkmark-circle-outline"></ion-icon>&nbsp; 
       <ion-icon *ngIf="feed.activity.sleep" name="bed"></ion-icon>&nbsp;
       <ion-icon *ngIf="feed.activity.feeding" name="ice-cream"></ion-icon>&nbsp;
       <ion-icon *ngIf="feed.activity.images" name="images"></ion-icon>&nbsp;

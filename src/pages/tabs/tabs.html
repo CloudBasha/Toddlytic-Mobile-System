@@ -1,21 +1,45 @@
 <!-- Main Tabs Header and Content -->
-<ion-header no-border>
+<ion-header no-border >
   <ion-navbar color="primary" hideBackButton>
-    
     <ion-buttons right>
       <div [hidden]="HideOnSearch" >
         <ion-grid>
-          <ion-row>
+          <ion-row *ngIf="!HideTabsHeader">
             <ion-col col-4 >
-              <button ion-button color="day" (click)="onAdd()"><ion-icon name="add"></ion-icon></button>
+              <button ion-button color="day" (click)="onAdd()"><ion-icon class="icon-large" name="add"></ion-icon></button>
             </ion-col>
             <ion-col col-4>
-              <button ion-button (click)="onSearch()" color="day"><ion-icon name="search"></ion-icon></button>
+              <button ion-button (click)="onSearch()" color="day"><ion-icon class="icon-large" name="search"></ion-icon></button>
             </ion-col>
             <ion-col col-4>
               <button ion-button color="day">
-                <ion-icon name="more"></ion-icon>
+                <ion-icon class="icon-large" name="more"></ion-icon>
               </button> 
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="HideTabsHeader">
+            <ion-col col-2 text-center>
+              <button (click)="attendance()"><ion-icon class="icon-large ion-bg" name="checkbox-outline"></ion-icon></button>
+            </ion-col>
+            <ion-col col-2>
+              <button (click)="hygiene()"><ion-icon class="icon-large" src="assets/img/hygiene.svg"></ion-icon></button>
+            </ion-col>
+            <ion-col col-2>
+              <button (click)="medication()"><ion-icon class="icon-large" src="assets/img/medications.svg"></ion-icon></button>
+            </ion-col>
+            <!--
+            <ion-col col-2>
+              <button (click)="meal()"><ion-icon class="icon-large" src="assets/img/bottlefeeding.svg"></ion-icon></button>
+            </ion-col>
+            -->
+            <ion-col col-2>
+              <button (click)="health()"><ion-icon class="icon-large" src="assets/img/healthcheck.svg"></ion-icon></button>
+            </ion-col>
+            <ion-col col-2>
+              <button (click)="sleep()"><ion-icon class="icon-large" src="assets/img/sleepometer.svg"></ion-icon></button>
+            </ion-col>
+            <ion-col col-2>
+                <button (click)="close()"><ion-icon class="icon-large" name="close"></ion-icon></button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -23,11 +47,11 @@
       <div [hidden]="!HideOnSearch">
           <ion-searchbar style="width:1024px" (change)="goSearch()" #searchbar placeholder="Search for" clearOnEdit="true" showCancelButton end
           [(ngModel)]="searchString" (ionFocus)="onFocus()" (ionInput)="goSearch()" (ionBlur)="offFocus()"
-          debounce=500></ion-searchbar>
+          debounce="500"></ion-searchbar>
       </div>
     </ion-buttons>
     <div [hidden]="HideOnSearch">
-    <ion-title><img style="width:160px" src="/assets/img/logo1.png"></ion-title><!-- 
+    <ion-title><img style="width:100px" src="assets/img/logo1.png"></ion-title><!-- 
     <ion-buttons left>
       <button ion-button icon-only (click)="onHome()">
         <ion-icon name="home" start></ion-icon>

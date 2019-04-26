@@ -14,10 +14,11 @@ export class DatabaseProvider {
   private databaseReady: BehaviorSubject<boolean>;
 
   constructor(public http: HttpClient, public sqlitePorter: SQLitePorter, 
-    private storage: Storage, private sqlite: SQLite, private platform: Platform) {
+    public storage: Storage, private sqlite: SQLite, private platform: Platform) {
     console.log('Hello DatabaseProvider Provider');
 
     this.databaseReady = new BehaviorSubject(false);
+    /*
     this.platform.ready().then(() => {
       this.sqlite.create({
         name: this.dbname,
@@ -34,8 +35,9 @@ export class DatabaseProvider {
           });
         });
     });
+    */
   }
-  
+
   getDatabaseState() {
     return this.databaseReady.asObservable();
   }

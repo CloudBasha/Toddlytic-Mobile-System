@@ -1,17 +1,24 @@
 <ion-header no-padding>
+  <div >
   <ion-navbar color="primary">
     <div class="hcs bar-stable bar-subheader no-tap-scroll">
       <button ion-button color="day" (click)="onBack()"><ion-icon name="arrow-back"></ion-icon></button>
       <ion-avatar slot="start" padding>
-        <img style="width:30px;height:30px;" src="assets/img/defaultAvatar.jpg">
+        <img style="width:30px;height:30px;" src="{{news.feed.img}}">
       </ion-avatar>
       <ion-title class="center">{{ news.feed.header }}</ion-title>
     </div>
     <ion-buttons end >
+      <!-- 
       <button ion-button ><ion-icon name="search" ></ion-icon></button>
       <button ion-button ><ion-icon name="more" ></ion-icon></button>
+      -->
     </ion-buttons>
   </ion-navbar>
+  </div>
+  <div [hidden]="!onActivity">
+    Selected
+  </div>
 </ion-header>
 <ion-content no-padding >
   <super-tabs tabsPlacement="top" toolbarBackground="primary" toolbarColor="light" indicatorColor="light" (tabSelect)="onTabSelect($event)">

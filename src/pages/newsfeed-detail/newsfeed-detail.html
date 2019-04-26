@@ -15,31 +15,21 @@
     </ion-fab>
     <ion-list #chatList>
   <ion-card *ngFor="let message of news.messages ; let i = index;" >
-    <ion-card-content *ngIf="message.mine" >
+    <ion-card-content>
       <ion-card-header >
         <div class="hcs">
-            <ion-label text-left><ion-icon name="clock"></ion-icon>&nbsp;{{message.time | date:'hh:mm:ss'}}</ion-label>
+          <ion-label text-left><ion-icon name="clock"></ion-icon>&nbsp;{{message.date | date:'shortTime'}}</ion-label>
+          <ion-label text-left>{{ message.date | date:'shortDate'}}</ion-label>
           <ion-label text-right text-wrap class="textLabelMessageDetailTitle">{{message.title}}</ion-label>  
           <ion-avatar slot="end">
-            <div *ngIf="message.img != null"><img src="{{message.img}}" style="width:30px;height:30px;"></div>
-            <div *ngIf="message.img == null"><img src="assets/img/defaultAvatar.jpg" style="width:30px;height:30px;"></div>
+            <div><img src="{{message.img}}" style="width:30px;height:30px;"></div>
           </ion-avatar> 
         </div>
       </ion-card-header>
+      <div *ngIf="message.isPhoto">
+        <img width="100%" src="{{message.photo}}"> 
+      </div>
       <ion-label text-left text-wrap class="textLabelMessageDetailContent">{{ message.content}}</ion-label>
-    </ion-card-content>
-    <ion-card-content *ngIf="!message.mine">
-      <ion-card-header >
-        <div class="hcs">
-          <ion-avatar slot="start">
-              <div *ngIf="message.img != null"><img src="{{message.img}}" style="width:30px;height:30px;"></div>
-              <div *ngIf="message.img == null"><img src="assets/img/defaultAvatar.jpg" style="width:30px;height:30px;"></div>
-          </ion-avatar> 
-          <ion-label padding text-left text-wrap class="textLabelMessageDetailTitle"> {{message.title}}</ion-label>  
-          <ion-label text-right class=""><ion-icon name="clock"></ion-icon>&nbsp;{{message.time | date:'hh:mm:ss'}}</ion-label>
-        </div>
-      </ion-card-header>
-      <ion-label text-left text-wrap class="textLabelMessageDetailContent">{{message.content}}</ion-label>
     </ion-card-content>
   </ion-card>
 </ion-list>

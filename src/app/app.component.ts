@@ -10,12 +10,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WindowPage } from '../pages/window/window';
 
 @Component({
-  templateUrl: 'app.html' 
+  templateUrl: 'app.html'  
 })
 export class MyApp {  
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any = SigninPage;
   state : any = null;
   pages: Array<{title: string, component: any}>;
 

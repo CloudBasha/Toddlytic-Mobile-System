@@ -1,0 +1,70 @@
+<ion-header style="background-color: white">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9>
+          <ion-item class="item item-input item-select" no-lines>
+            <!-- (change)="filterStudentsByProgram(selected.programs)"  [(ngModel)]="selected.programs"
+            ng-options="program.programSchoolId as program.programSchoolName group by program.school.schoolName for program in programsOrdered"
+            -->
+          <ion-label class="input-label" for="ProgramSelect">Program</ion-label>
+          <ion-select multiple="true" id="ProgramSelect" 
+            [(ngModel)]="selected" placeholder="Filter">
+            <ion-option *ngFor="let program of programsOrdered;" value="{{program.programSchoolId}}">{{program.programSchoolName}}</ion-option>
+          </ion-select> 
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-row *ngIf="showHeader">
+            <ion-col text-left>
+              <input type="checkbox" size="200%"
+                    [(ngModel)]="unselect"
+                    (checked)="unselect"
+                    (click)="unselected()"/>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let student of students; let i = index;">
+        
+          <ion-item no-lines>
+            <div *ngIf="showHeader" class="item-checkbox">
+              <label class="checkbox">
+                <input type="checkbox"
+                        [(ngModel)]="students[i].selected"/>
+              </label>
+            </div>
+            <ion-label text-wrap *ngIf="student.student.photoUrl == null">
+              <div *ngIf="showHeader" class="item-checkbox">
+                <label class="checkbox">
+                  <input type="checkbox"
+                          [(ngModel)]="students[i].selected"/>
+                </label>
+              </div>
+              <ion-chip ion-button color="primary" (press)="select(i)" (click)="completeHealth(i)">
+              {{student.student.name}} 
+              </ion-chip>
+            </ion-label>
+
+            <ion-avatar slot="start" (press)="select(i)" (click)="completeHealth(i)">
+              <img [src]="checkImg(student.student.photoUrl)">
+            </ion-avatar>
+            <ion-label *ngIf="showNames">{{student.student.name}}</ion-label>
+
+          </ion-item>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer *ngIf="showHeader" no-shadow no-padding style="background: white">
+  <ion-buttons>
+
+  </ion-buttons>
+  </ion-footer>
+<!--  -->

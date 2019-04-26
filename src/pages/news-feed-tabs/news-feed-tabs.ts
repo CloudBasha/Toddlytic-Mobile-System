@@ -5,6 +5,7 @@ import { MyApp } from '../../app/app.component';
 import { TabsPage } from '../tabs/tabs';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
 import { PopoverComponent } from '../../components/popover/popover';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -22,14 +23,14 @@ export class NewsFeedTabsPage {
   ];
   @ViewChild(SuperTabs) superTabs: SuperTabs;
   public selectedTab = 0;
+  public onActivity : boolean = false;
   private news : any = {
     feed : null , messages : [ 
       {title : null , content : null} 
     ]
   };
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private app : MyApp,
-    private popoverController : PopoverController) {
+    private popoverController : PopoverController, private global : GlobalProvider) {
     this.news.feed = this.navParams.data; 
     this.pages[0].nav = this.news.feed;
     //let data = this.navParams.data.rootNavCtrl.rootParams;
@@ -40,6 +41,11 @@ export class NewsFeedTabsPage {
     console.log('ionViewDidLoad NewsFeedTabsPage');
     console.log("pages", this.pages);
     this.news.feed = this.pages[0].nav.rootNavCtrl.rootParams;
+  }
+
+  sortNewsFeed(){
+    this.news.feed.sort((a,b) => a.rowid.toString().localeCompare(b.time));
+    return this.news.feed.reverse();
   }
 
   onTabSelect(ev: any) {
