@@ -16,37 +16,30 @@ import { ListPage } from '../pages/list/list';
 import { SigninPage } from '../pages/signin/signin'; 
 import { TabsPage } from '../pages/tabs/tabs';
 import { MenuPage } from '../pages/menu/menu';
-
-import { CameraPageModule } from '../pages/camera/camera.module';
-import { GlobalProvider } from '../providers/global/global';
 import { NewsFeedTabsPage } from '../pages/news-feed-tabs/news-feed-tabs';
 import { WindowPage } from '../pages/window/window';
-import { PopoverComponent } from '../components/popover/popover';
+
+import { GlobalProvider } from '../providers/global/global';
 import { HttpProvider } from '../providers/http/http';
-import { DatePipe } from '@angular/common'; 
-import { LowerCasePipe } from '@angular/common';
-import { TitleCasePipe } from '@angular/common';
-import { CurrencyPipe } from '@angular/common';
-import { JsonPipe } from '@angular/common';
-import { PercentPipe } from '@angular/common';
-import { UpperCasePipe } from '@angular/common';
+import { DatePipe, LowerCasePipe, TitleCasePipe, CurrencyPipe, JsonPipe, PercentPipe, UpperCasePipe } from '@angular/common'; 
+import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({ 
   declarations: [ 
     MyApp,
     HomePage,
-    ListPage,  
+    ListPage,   
     SigninPage,
     TabsPage,
     NewsFeedTabsPage,
     WindowPage,
-    MenuPage
+    MenuPage,
+    SettingsPage
   ],
   imports: [
     SuperTabsModule, 
     BrowserModule,   
-    HttpClientModule, 
-    CameraPageModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     SuperTabsModule.forRoot()
@@ -60,7 +53,8 @@ import { UpperCasePipe } from '@angular/common';
     TabsPage, 
     NewsFeedTabsPage,
     WindowPage, 
-    MenuPage
+    MenuPage,
+    SettingsPage
   ],
   providers: [ 
     StatusBar,

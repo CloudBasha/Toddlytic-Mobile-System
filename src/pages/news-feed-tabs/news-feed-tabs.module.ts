@@ -11,3 +11,4 @@ import { NewsFeedTabsPage } from './news-feed-tabs';
   ],
 })
 export class NewsFeedTabsPageModule {}
+ 

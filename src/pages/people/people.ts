@@ -80,7 +80,7 @@ export class PeoplePage {
   }
  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PeoplePage');
+    console.log('ionViewDidLoad PeoplePage'); 
     this.getStudentList();
     this.getProgramList();
     this.selected = [];
@@ -125,7 +125,7 @@ export class PeoplePage {
     
     console.log("post data2", JSON.stringify(postActivityObj));
     this.closeHeader();
-    /*
+    
     this.httpProvider.getdata("app/c_tracking_list/", postActivityObj)
     .then(data =>{
       this.response = data;
@@ -139,7 +139,7 @@ export class PeoplePage {
       console.log("error",JSON.stringify(error));
       console.log("post data", JSON.stringify(postActivityObj));
     });
-    */
+    
   }
 
   completeHealth(i){

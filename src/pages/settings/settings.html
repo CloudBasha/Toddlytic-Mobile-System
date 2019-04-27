@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="primary">
+  <ion-buttons >
+    <button ion-button color="day" (click)="viewCtrl.dismiss()"><ion-icon name="arrow-back"></ion-icon></button>
+  </ion-buttons>
+  
+    <ion-title class="center">Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bar-subheader-custm peopleContent" scroll="false" >
+    <ion-segment full="false" class="segmentBar" [(ngModel)]="section">
+        <ion-segment-button class="segmentButton" value="profile">
+          Profile
+        </ion-segment-button>
+        <ion-segment-button class="segmentButton" value='company'>
+          Company
+        </ion-segment-button >
+        <ion-segment-button class="segmentButton"  value='web'>
+         Web
+        </ion-segment-button>
+        <ion-segment-button class="segmentButton"  value='help'>
+          Help
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="section">
+        <ion-list *ngSwitchCase="'profile'">
+          <ion-item no-lines>
+            <ion-avatar class="item-avatar">
+              <img src="{{contactData.photoUrl}}" >
+            </ion-avatar>
+          </ion-item>
+          <ion-item no-lines>
+              <ion-label>Name</ion-label>
+              <ion-label>{{contactData.name}}</ion-label>
+            </ion-item>
+          <ion-item no-lines>
+            <ion-label>Email</ion-label>
+            <ion-label>{{contactData.email}}</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>Designation</ion-label>
+            <ion-label>{{contactData.designation}}</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>TimeZone</ion-label>
+            <ion-label>{{contactData.timezone}}</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>Language</ion-label>
+            <ion-label>{{contactData.language}}</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>Currency</ion-label>
+            <ion-label>{{contactData.currency}}</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label>Address</ion-label>
+            <ion-label>{{contactData.homeAddressStreetOne}}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'company'">
+
+        </ion-list>
+        <ion-list *ngSwitchCase="'web'">
+
+        </ion-list>
+        <ion-list *ngSwitchCase="'help'">
+
+        </ion-list>
+      </div>
+</ion-content>

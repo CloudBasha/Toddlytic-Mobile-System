@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class MenuPage {
   student : any;
-
+  section : string = 'sleep';
   meal = {
     milkQty: '',
     menuId: '',
@@ -25,9 +25,6 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');   
   }
 
-  segment(v){
-    console.log("segment"); 
-  }
 
   dismiss() { 
     let data = { 'foo': 'bar' };

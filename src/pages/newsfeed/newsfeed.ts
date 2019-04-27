@@ -56,7 +56,6 @@ export class NewsfeedPage {
     let imgUser = this.setImg(item.auditLog.userId.contact.photoUrl);
     //console.log("hasPhoto",item.auditLog.newData,school_name);
 
-    //if(isArray(this.feeds))
     for(let i=0;i<this.feeds.length;i++){
       if(this.feeds[i].school_name == school_name){
         status_photo = true;

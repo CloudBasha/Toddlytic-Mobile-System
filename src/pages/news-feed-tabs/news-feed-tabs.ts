@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SuperTabs } from 'ionic2-super-tabs';
 import { MyApp } from '../../app/app.component';
 import { TabsPage } from '../tabs/tabs';
-import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
-import { PopoverComponent } from '../../components/popover/popover';
 import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
@@ -29,14 +27,13 @@ export class NewsFeedTabsPage {
       {title : null , content : null} 
     ]
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app : MyApp,
-    private popoverController : PopoverController, private global : GlobalProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app : MyApp, private global : GlobalProvider) {
     this.news.feed = this.navParams.data; 
     this.pages[0].nav = this.news.feed;
     //let data = this.navParams.data.rootNavCtrl.rootParams;
     //this.news.feed = data;
-  }
-
+  } 
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewsFeedTabsPage');
     console.log("pages", this.pages);
@@ -50,19 +47,10 @@ export class NewsFeedTabsPage {
 
   onTabSelect(ev: any) {
     this.selectedTab = ev.index;
-  }
+  } 
 
   public onBack(){
     let state = { selectedTab : this.onTabSelect };
     this.app.setRootPage(TabsPage, state);
-  }
-
-  async presentPopover(ev: any) { 
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
   }
 }

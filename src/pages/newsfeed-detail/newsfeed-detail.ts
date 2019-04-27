@@ -2,7 +2,6 @@ import { Component, ViewChild, ElementRef} from '@angular/core';
 import { IonicPage, NavController, NavParams, Content, List } from 'ionic-angular';
 import { SuperTabsController } from 'ionic2-super-tabs';
 import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
-import { PopoverComponent } from '../../components/popover/popover';
 import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
@@ -22,9 +21,9 @@ export class NewsfeedDetailPage {
 
   public m : any[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private superTabsCtrl: SuperTabsController,
-    private popoverController : PopoverController, private global : GlobalProvider) {
+     private global : GlobalProvider) {
     this.news.messages = this.navParams.data.rootNavCtrl.rootParams.news;
-  
+    this.news.messages.reverse();
       console.log("feed Nav",this.navParams.data.rootNavCtrl.rootParams);    
     //this.news.messages = this.getMessages(this.news.feed.id);
   }
@@ -55,12 +54,4 @@ export class NewsfeedDetailPage {
       return this.m.reverse();
   }
   
-  async presentPopover(ev: any) { 
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
-  }
 }
