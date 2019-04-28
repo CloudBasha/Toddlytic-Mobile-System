@@ -54,18 +54,16 @@
       </div>
     </ion-buttons>
     <div [hidden]="HideOnSearch">
-    <ion-title><img style="width:100px" src="assets/img/logo1.png"></ion-title>
-    <ion-avatar slot="start" padding>
-      <img style="width:30px;height:30px;"  src="{{imgContactUrl}}">
-    </ion-avatar>
-    <!-- 
-      {{ContactData.contact.photoUrl}}
-    <ion-buttons left>
-      <button ion-button icon-only (click)="onHome()">
-        <ion-icon name="home" start></ion-icon>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-avatar no-padding>
+          <img style="width:30px;height:30px;"  src="{{imgContactUrl}}">
+        </ion-avatar>
+      </button>
+      <button>
+        <ion-title><img style="width:90px" src="assets/img/logo1.png"></ion-title>
       </button>
     </ion-buttons>
-    -->
   </div>
   </ion-navbar>
 </ion-header> 

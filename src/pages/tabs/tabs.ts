@@ -72,7 +72,8 @@ export class TabsPage {
     this.http.getdata(APIname, contactObj)
     .then(data =>{
       this.ContactData = data;
-      this.imgContactUrl = this.ContactData.contact.photoUrl;
+      if(this.ContactData.contact.photoUrl)
+        this.imgContactUrl = this.ContactData.contact.photoUrl;
       console.log("ContactData",this.ContactData);
     }, (error) => {
       console.log("error",JSON.stringify(error));

@@ -15,8 +15,8 @@ export class SigninPage {
   //Admins
   //public loginRequest = { userName : "kana@cloudbasha.com" , password : "carel28"}; 
   //public loginRequest = { userName : "jonathan@cloudbasha.com" , password : "manutd11"};
-  //public loginRequest = { userName : "nasiruddin@cloudbasha.com" , password : "toddlyticnas91"}; 
-  public loginRequest = { userName : "enquiry@littlehumanscholars.com.my" , password : "Pinkchick1992"};
+  public loginRequest = { userName : "nasiruddin@cloudbasha.com" , password : "toddlyticnas91"}; 
+  //public loginRequest = { userName : "enquiry@littlehumanscholars.com.my" , password : "Pinkchick1992"};
   
   //Teachers
   //public loginRequest = { userName : "nasiruddin@toddlytic.com" , password : "toddlyticnas91"}; 
