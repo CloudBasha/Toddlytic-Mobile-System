@@ -11,7 +11,7 @@ import { GlobalProvider } from '../../providers/global/global';
   templateUrl: 'signin.html',
 })
 
-export class SigninPage { 
+export class SigninPage {  
   //Admins
   //public loginRequest = { userName : "kana@cloudbasha.com" , password : "carel28"}; 
   //public loginRequest = { userName : "jonathan@cloudbasha.com" , password : "manutd11"};
